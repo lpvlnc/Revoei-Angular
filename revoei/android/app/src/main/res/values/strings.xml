@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">revoei</string>
+    <string name="title_activity_main">revoei</string>
+    <string name="package_name">com.lpvlnc.revoei</string>
+    <string name="custom_url_scheme">com.lpvlnc.revoei</string>
+</resources>
