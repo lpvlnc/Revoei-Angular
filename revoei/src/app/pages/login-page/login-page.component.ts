@@ -27,15 +27,19 @@ export class LoginPageComponent implements OnInit {
 
   login(){
     const login: Login = Object.assign(this.form.value)
-    this.loginPageService.login(login).subscribe((response: any) => {
-      const token = (<any>response).token;
-      if (!!token) {
-        localStorage.setItem("jwt", token);
-        this.invalidLogin = false;
-        this.router.navigate(["/home"]);
-      }
-      else
+    this.loginPageService.login(login).subscribe(
+      response => {
+        const token = (<any>response).token;
+        console.log(token);
+        if (!!token) {
+          localStorage.setItem("jwt", token);
+          this.invalidLogin = false;
+          this.router.navigate(["/home"]);
+        }
+      },
+      err => {
         this.invalidLogin = true;
-    });
+      }
+    );
   }
 }

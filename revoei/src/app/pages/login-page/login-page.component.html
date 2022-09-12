@@ -1,14 +1,16 @@
 <form [formGroup]="form">
     <div class="container">
         <div class="row">
-            <input type="text" id="username" name="username" formControlName="username" placeholder="Username">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" formControlName="username">
         </div>
         <div class="row">
-            <input type="text" id="password" name="password" formControlName="password" placeholder="Password">
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password" formControlName="password">
         </div>
-        <div class="row">
-            <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
+        <div class="row mt-5">
             <input type="submit" value="Submit" (click)="login()">
         </div>
+        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
     </div>
 </form>

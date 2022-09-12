@@ -1,15 +1,17 @@
 import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from "@angular/core";
 import { GlobalHttpInterceptorService } from "./services/global-http-interceptor.service";
-import { BrowserModule } from "@angular/platform-browser";
 import { ToastrModule } from "ngx-toastr";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NgbModule,
     HttpClientModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right',

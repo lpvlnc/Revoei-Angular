@@ -1,5 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
@@ -9,7 +10,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class GlobalHttpInterceptorService implements HttpInterceptor {
 
-  constructor(private toastr: ToastrService) { }
+  constructor(private toastr: ToastrService,
+              private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
@@ -21,7 +23,8 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
           } else {
             switch (error.status) {
                 case 401: // Unauthorized
-                  this.showOnconsole(error.error);
+                  this.toastr.error('Your session has expired.', 'Error');
+                  this.router.navigate(["/login"]);
                   break;
                 case 403: // Forbidden
                   this.showOnconsole(error.error);
@@ -35,7 +38,7 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
             }
           } 
         } else {
-            console.error("some thing else happened");
+            console.error("Generic error");
         }
         return throwError(() => new Error(error.messsage));
       })
