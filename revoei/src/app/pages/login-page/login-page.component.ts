@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login } from '@core/interfaces/login';
 import { LoginPageService } from './login-page.service';
@@ -14,7 +14,7 @@ export class LoginPageComponent implements OnInit {
 
   public invalidLogin: boolean = false;
 
-  public form = this.formBuilder.group({
+  public formGroup = new FormGroup({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
@@ -26,7 +26,7 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void { }
 
   login(){
-    const login: Login = Object.assign(this.form.value)
+    const login: Login = Object.assign(this.formGroup.value)
     this.loginPageService.login(login).subscribe(
       response => {
         const token = (<any>response).token;

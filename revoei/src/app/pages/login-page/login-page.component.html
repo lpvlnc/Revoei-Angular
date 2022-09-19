@@ -1,16 +1,13 @@
-<form [formGroup]="form">
+<form [formGroup]="formGroup">
     <div class="container">
         <div class="row">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" formControlName="username">
+            <app-input id="username" label="Username" [control]="formGroup.controls.username"></app-input>
         </div>
         <div class="row">
-            <label for="password">Password</label>
-            <input type="text" id="password" name="password" formControlName="password">
+            <app-input id="password" label="Password" [control]="formGroup.controls.password"></app-input>
         </div>
         <div class="row mt-5">
-            <input type="submit" value="Submit" (click)="login()">
+            <app-button label='Login' type="primary" (click)="login()"></app-button>
         </div>
-        <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password.</div>
     </div>
 </form>

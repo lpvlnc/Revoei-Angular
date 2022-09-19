@@ -5,12 +5,16 @@ import { ToastrModule } from "ngx-toastr";
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { CommonModule } from "@angular/common";
+import { RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
     NgbModule,
     HttpClientModule,
     ToastrModule.forRoot({
@@ -26,6 +30,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       countDuplicates: true,
       resetTimeoutOnDuplicate: true
     })
+  ],
+  exports: [
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    NgbModule,
+    HttpClientModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true }],
 })

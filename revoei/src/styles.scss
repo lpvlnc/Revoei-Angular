@@ -2,41 +2,29 @@
 @import '~bootstrap/scss/bootstrap';
 @import url(https://fonts.googleapis.com/css?family=Oswald|Roboto);
 
-// * {
-//     margin: 0;
-//     padding: 0;
-//     border: 0;
-//     outline: 0;
-//     box-sizing: border-box;
-//     list-style: none;
-//     text-decoration: none;
-//     font-family: Roboto, sans-serif
-// }
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none !important;
+    font-family: 'Oswald', 'sans-serif';
+}
 
 :root {
     // color
     --color-background: #ffffff;
     --color-primary: #b74bec;
-    --color-title: #000000;
+    --color-primary-variant: #d27cfd;
+    --color-secondary: #ffffff;
+    --color-black: #000000;
     --color-text: #444444;
+	--color-gray: #bbb;
 
-    --transition: all 400ms ease;
-}
-
-input {
-    border: none;
-	border-bottom: 2px solid var(--color-text);
-	background: none;
-	padding: 10px;
-	padding-left: 24px;
-	font-weight: 700;
-	width: 75%;
-	transition: var(--transition);
-}
-
-input:active,
-input:focus,
-input:hover {
-	outline: none;
-	border-bottom-color: var(--color-primary);
+	// transitions
+    --transition-default: all 400ms ease;
+    --transition-half: all 200ms ease;
+    --transition-border-color: border-color 0.2s;
 }

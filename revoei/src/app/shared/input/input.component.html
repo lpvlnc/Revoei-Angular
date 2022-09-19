@@ -1,0 +1,11 @@
+<div class="input__container field">
+    <input type="input" class="input__field" [placeholder]="label" [id]="id" type="text" [formControl]="control"
+    [class.invalid]="control.invalid && control.dirty && control.touched"/>
+    <label [for]="id" class="input__label">{{label}}</label>
+
+    <ng-container *ngIf="control.invalid && control.dirty && control.touched">
+        <div *ngFor="let err of control.errors | keyvalue">
+            <p class="input__error">{{ errorMessages[err.key] }}</p>
+         </div>
+    </ng-container>
+</div>
