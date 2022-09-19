@@ -14,7 +14,7 @@ export class LoginPageComponent implements OnInit {
 
   public invalidLogin: boolean = false;
 
-  public formGroup = new FormGroup({
+  public formGroup = this.formBuilder.group({
     username: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
@@ -41,5 +41,9 @@ export class LoginPageComponent implements OnInit {
         this.invalidLogin = true;
       }
     );
+  }
+
+  forgotPassword() {
+
   }
 }

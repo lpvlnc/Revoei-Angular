@@ -1,13 +1,29 @@
-<form [formGroup]="formGroup">
-    <div class="container">
-        <div class="row">
-            <app-input id="username" label="Username" [control]="formGroup.controls.username"></app-input>
-        </div>
-        <div class="row">
-            <app-input id="password" label="Password" [control]="formGroup.controls.password"></app-input>
-        </div>
-        <div class="row mt-5">
-            <app-button label='Login' type="primary" (click)="login()"></app-button>
+<div class="container mt-5">
+    <h1>Login</h1>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <form [formGroup]="formGroup">
+                <div class="row">
+                    <div class="col">
+                        <app-input id="username" label="Username" [control]="formGroup.controls.username"></app-input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <app-input id="password" label="Password" [control]="formGroup.controls.password"></app-input>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        <app-button label='Login' type="primary" (click)="login()"></app-button>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        <app-button label='Esqueceu a senha?' type="tertiary" (click)="forgotPassword()"></app-button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
-</form>
+</div>

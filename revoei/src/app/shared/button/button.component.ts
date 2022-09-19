@@ -20,6 +20,7 @@ export class ButtonComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.label = this.label.toUpperCase();
   }
 
 }
