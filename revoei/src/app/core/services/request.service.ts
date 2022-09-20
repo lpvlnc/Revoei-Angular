@@ -26,7 +26,7 @@ export class RequestService implements OnDestroy {
 
     switch(method) {
       case 'get':
-        request = this.http.get(url);
+        request = this.http.get(url, options);
         break;
       case 'post':
         request = this.http.post(url, body, options);
