@@ -10,7 +10,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <app-input id="password" label="Password" [control]="formGroup.controls.password"></app-input>
+                        <app-input id="password" label="Password" type="password" [control]="formGroup.controls.password"></app-input>
                     </div>
                 </div>
                 <div class="row mt-5">
@@ -30,7 +30,7 @@
 <div class="container fixed-bottom mb-5">
     <div class="row">
         <div class="col">
-            <app-button label='Cadastrar-se' type="tertiary" (click)="redirectToRegisterPage()"></app-button>
+            <app-button label='Cadastrar-se' type="tertiary" (click)="redirectToRegistrationPage()"></app-button>
         </div>
     </div>
 </div>

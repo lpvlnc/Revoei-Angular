@@ -48,7 +48,7 @@ export class LoginPageComponent implements OnInit {
 
   }
 
-  redirectToRegisterPage() {
-    this.router.navigate(["/register"]);
+  redirectToRegistrationPage() {
+    this.router.navigate(["/registration"]);
   }
 }

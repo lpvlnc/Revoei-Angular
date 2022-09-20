@@ -1,5 +1,5 @@
 <div class="input__container field">
-    <input type="input" class="input__field" [placeholder]="label" [id]="id" type="text" [formControl]="control"
+    <input [type]="type" class="input__field" [placeholder]="label" [id]="id" type="text" [formControl]="control"
     [class.invalid]="control.invalid && control.dirty && control.touched"/>
     <label [for]="id" class="input__label">{{label}}</label>
 

@@ -14,6 +14,8 @@ export class InputComponent {
 
   @Input() control = new FormControl('');
 
+  @Input() type = 'text';
+
   errorMessages: Record<string, string> = {
     required: "The field is required"
   }
