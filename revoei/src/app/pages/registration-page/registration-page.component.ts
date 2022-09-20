@@ -3,15 +3,15 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '@core/interfaces/user';
 import { ToastrService } from 'ngx-toastr';
-import { RegisterPageService } from './register-page.service';
+import { RegistrationPageService } from './registration-page.service';
 
 @Component({
-  selector: 'app-register-page',
-  templateUrl: './register-page.component.html',
-  styleUrls: ['./register-page.component.scss'],
-  providers: [RegisterPageService]
+  selector: 'app-registration-page',
+  templateUrl: './registration-page.component.html',
+  styleUrls: ['./registration-page.component.scss'],
+  providers: [RegistrationPageService]
 })
-export class RegisterPageComponent implements OnInit {
+export class RegistrationPageComponent implements OnInit {
 
   public formGroup = this.formBuilder.group({
     firstName: new FormControl('', Validators.required),
@@ -22,24 +22,24 @@ export class RegisterPageComponent implements OnInit {
   });
 
   constructor(private formBuilder: FormBuilder,
-              private registerPageService: RegisterPageService,
+              private registrationPageService: RegistrationPageService,
               private router: Router,
               private toaster: ToastrService) { }
 
   ngOnInit(): void {
   }
 
-  register() {
+  registration() {
     const user: User = Object.assign(this.formGroup.value);
     user.emailConfirmed = false;
     user.profilePicture = '';
-    this.registerPageService.register(user).subscribe({
+    this.registrationPageService.registration(user).subscribe({
       next: (response: string) => {
         this.toaster.success(response);
       },
       error: (e) => console.error(e),
       complete: () => {
-        this.redirectToLogin();
+        this.router.navigate(["/registration/done/"+user.email]);
       }
     });
   }
