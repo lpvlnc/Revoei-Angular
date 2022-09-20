@@ -30,7 +30,6 @@ export class LoginPageComponent implements OnInit {
     this.loginPageService.login(login).subscribe({
       next: (response: Token) => {
         const token = response.token;
-        console.log(token);
         if (!!token) {
           localStorage.setItem("jwt", token);
           this.invalidLogin = false;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '@core/interfaces/user';
+import { Registration } from '@core/interfaces/registration';
 import { ToastrService } from 'ngx-toastr';
 import { RegistrationPageService } from './registration-page.service';
 
@@ -18,7 +18,8 @@ export class RegistrationPageComponent implements OnInit {
     lastName: new FormControl('', Validators.required),
     email: new FormControl('', [Validators.required, Validators.email]),
     username: new FormControl('', Validators.required),
-    password: new FormControl('', Validators.required)
+    password: new FormControl('', Validators.required),
+    passwordConfirmation: new FormControl('', Validators.required)
   });
 
   constructor(private formBuilder: FormBuilder,
@@ -30,16 +31,16 @@ export class RegistrationPageComponent implements OnInit {
   }
 
   registration() {
-    const user: User = Object.assign(this.formGroup.value);
-    user.emailConfirmed = false;
-    user.profilePicture = '';
-    this.registrationPageService.registration(user).subscribe({
+    const registration: Registration = Object.assign(this.formGroup.value);
+    registration.emailConfirmed = false;
+    registration.profilePicture = '';
+    this.registrationPageService.registration(registration).subscribe({
       next: (response: string) => {
         this.toaster.success(response);
       },
       error: (e) => console.error(e),
       complete: () => {
-        this.router.navigate(["/registration/done/"+user.email]);
+        this.router.navigate(["/registration/done/" + registration.email]);
       }
     });
   }
