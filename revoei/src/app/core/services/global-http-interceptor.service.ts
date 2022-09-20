@@ -14,7 +14,6 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
               private router: Router) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-
     return next.handle(req).pipe(
       catchError((error) => {
         if (error instanceof HttpErrorResponse) {

@@ -1,0 +1,46 @@
+<div class="container mt-5">
+    <h1>Register</h1>
+    <div class="row d-flex justify-content-center">
+        <div class="col-12">
+            <form [formGroup]="formGroup">
+                <div class="row">
+                    <div class="col">
+                        <app-input id="firstName" label="First name" [control]="formGroup.controls.firstName"></app-input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <app-input id="lastName" label="Last name" [control]="formGroup.controls.lastName"></app-input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <app-input id="email" label="E-mail" [control]="formGroup.controls.email"></app-input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <app-input id="username" label="Username" [control]="formGroup.controls.username"></app-input>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <app-input id="password" label="Password" [control]="formGroup.controls.password"></app-input>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="col">
+                        <app-button label='register' type="primary" (click)="register()"></app-button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container fixed-bottom mb-5">
+    <div class="row">
+        <div class="col">
+            <app-button label='Already have an account?' type="tertiary" (click)="redirectToLogin()"></app-button>
+        </div>
+    </div>
+</div>

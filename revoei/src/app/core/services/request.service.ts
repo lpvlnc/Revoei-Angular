@@ -20,7 +20,7 @@ export class RequestService implements OnDestroy {
     this.subscriptions.unsubscribe();
   }
 
-  Request(method: RequestMethod, url: string, body?: any) {
+  Request(method: RequestMethod, url: string, body?: any, options?: any) {
     let request: Observable<any>;
     url = this.baseUrl + url;
 
@@ -29,7 +29,7 @@ export class RequestService implements OnDestroy {
         request = this.http.get(url);
         break;
       case 'post':
-        request = this.http.post(url, body);
+        request = this.http.post(url, body, options);
         break;
       case 'put':
         request = this.http.put(url, body);

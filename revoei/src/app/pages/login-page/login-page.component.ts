@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login } from '@core/interfaces/login';
+import { Login, Token } from '@core/interfaces/login';
 import { LoginPageService } from './login-page.service';
 
 @Component({
@@ -26,10 +26,10 @@ export class LoginPageComponent implements OnInit {
   ngOnInit(): void { }
 
   login(){
-    const login: Login = Object.assign(this.formGroup.value)
-    this.loginPageService.login(login).subscribe(
-      response => {
-        const token = (<any>response).token;
+    const login: Login = Object.assign(this.formGroup.value);
+    this.loginPageService.login(login).subscribe({
+      next: (response: Token) => {
+        const token = response.token;
         console.log(token);
         if (!!token) {
           localStorage.setItem("jwt", token);
@@ -37,13 +37,18 @@ export class LoginPageComponent implements OnInit {
           this.router.navigate(["/home"]);
         }
       },
-      err => {
-        this.invalidLogin = true;
+      error: (e) => {
+        this.invalidLogin = true
+        console.error(e);
       }
-    );
+    })
   }
 
   forgotPassword() {
 
+  }
+
+  redirectToRegisterPage() {
+    this.router.navigate(["/register"]);
   }
 }
