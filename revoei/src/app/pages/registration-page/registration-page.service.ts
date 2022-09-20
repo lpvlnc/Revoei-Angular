@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { User } from "@core/interfaces/user";
+import { Registration } from "@core/interfaces/registration";
 import { RequestService } from "@core/services/request.service";
 import { Observable } from "rxjs";
 
@@ -8,7 +8,7 @@ export class RegistrationPageService {
 
   constructor(private request: RequestService) { }
 
-  registration(user: User): Observable<string> {
-    return this.request.Request('post', 'Authentication/Registration', user, {responseType: 'text'});
+  registration(registration: Registration): Observable<string> {
+    return this.request.Request('post', 'Authentication/Registration', registration, { responseType: 'text' });
   }
 }

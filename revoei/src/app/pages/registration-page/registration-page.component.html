@@ -28,6 +28,11 @@
                         <app-input id="password" label="Password" type="password" [control]="formGroup.controls.password"></app-input>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col">
+                        <app-input id="passwordConfirmation" label="Password confirmation" type="password" [control]="formGroup.controls.passwordConfirmation"></app-input>
+                    </div>
+                </div>
                 <div class="row mt-5">
                     <div class="col">
                         <app-button label='register' type="primary" (click)="registration()"></app-button>
