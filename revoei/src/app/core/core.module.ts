@@ -8,6 +8,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
+import { NavBarComponent } from "@shared/nav-bar/nav-bar.component";
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [],
@@ -29,14 +32,18 @@ import { ReactiveFormsModule } from "@angular/forms";
       includeTitleDuplicates: true,
       countDuplicates: true,
       resetTimeoutOnDuplicate: true
-    })
+    }),
+    MatToolbarModule,
+    MatIconModule,
   ],
   exports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true }],
 })
