@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Registration } from '@core/interfaces/registration';
+import { NavbarService } from '@core/services/nav-bar.service';
 import { ToastrService } from 'ngx-toastr';
 import { RegistrationPageService } from './registration-page.service';
 
@@ -25,9 +26,11 @@ export class RegistrationPageComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private registrationPageService: RegistrationPageService,
               private router: Router,
-              private toaster: ToastrService) { }
+              private toaster: ToastrService,
+              private navBarService: NavbarService) { }
 
   ngOnInit(): void {
+    this.navBarService.hide();
   }
 
   registration() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Login, Token } from '@core/interfaces/login';
+import { NavbarService } from '@core/services/nav-bar.service';
 import { LoginPageService } from './login-page.service';
 
 @Component({
@@ -21,9 +22,12 @@ export class LoginPageComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private loginPageService: LoginPageService,
-              private router: Router) { }
+              private router: Router,
+              private navBarService: NavbarService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.navBarService.hide();
+  }
 
   login(){
     const login: Login = Object.assign(this.formGroup.value);
