@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RevoeiDate } from '@shared/interfaces/revoei-date';
+import { RevoeiDateService } from '@shared/services/revoei-date.service';
 
 @Component({
   selector: 'app-dates-page',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatesPageComponent implements OnInit {
 
-  constructor() { }
+  dates: RevoeiDate[] = [];
+
+  constructor(private revoeiDateService: RevoeiDateService) { }
 
   ngOnInit(): void {
+    this.revoeiDateService.get().subscribe({
+      next: (data: RevoeiDate[]) => {
+        this.dates = data;
+        console.log(this.dates);
+      }
+    })
   }
 
 }
