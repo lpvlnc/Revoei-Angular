@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { RevoeiDate } from '@shared/interfaces/revoei-date';
+import { RevoeiDateService } from '@shared/services/revoei-date.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  search: string = "";
+
+  allDates: RevoeiDate[] = [];
+  filteredDates: RevoeiDate[] = [];
+  
+  constructor(private revoeiDateService: RevoeiDateService) { }
 
   ngOnInit(): void {
+    this.revoeiDateService.get().subscribe({
+      next: (data: RevoeiDate[]) => {
+        this.allDates = data;
+        this.filteredDates = data;
+      }
+    })
   }
 
+  filter() {
+    this.filteredDates = this.allDates.filter(date => date.name.includes(this.search));
+  }
 }

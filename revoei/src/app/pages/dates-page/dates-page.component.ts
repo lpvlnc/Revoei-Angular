@@ -9,17 +9,10 @@ import { RevoeiDateService } from '@shared/services/revoei-date.service';
 })
 export class DatesPageComponent implements OnInit {
 
-  dates: RevoeiDate[] = [];
-
-  constructor(private revoeiDateService: RevoeiDateService) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.revoeiDateService.get().subscribe({
-      next: (data: RevoeiDate[]) => {
-        this.dates = data;
-        console.log(this.dates);
-      }
-    })
+    
   }
 
 }

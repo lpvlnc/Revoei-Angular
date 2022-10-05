@@ -16,16 +16,21 @@
     position: absolute;
     left:0;
     right:0;
-    bottom: 0;
+    bottom: -11%;
     margin-left:auto;
     margin-right:auto;
     transition: var(--transition-default);
 }
 
 .overlay-container:hover > .title {
-    bottom: 86%;
+    bottom: 92%;
     transition: var(--transition-default);
     transform: translate(0, 100%);
+}
+
+.description {
+    padding-left: 12px;
+    padding-top: 32px;
 }
 
 .overlay-container > .description, .links {
@@ -62,9 +67,14 @@ i:hover {
     width: 100%;
 }
 
+h1 {
+    font-size: 1rem;
+    text-align: start;
+}
+
 small {
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 6;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -74,4 +84,33 @@ small {
     .description {
         display: none;
     }
+}
+
+.overlay-container:hover > .stars-top-right {
+    transition: var(--transition-default);
+    display: none;
+}
+
+.stars-top-right {
+    position: absolute;
+    transform: scale(0.5);
+    right: -20px;
+    top: 4px;
+}
+
+.stars {
+    transform: scale(0.5);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.checked {
+    color: orange;
+}
+
+.details {
+    position: absolute;
+    bottom: 0;
+    right: 8%;
 }

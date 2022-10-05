@@ -16,6 +16,8 @@ export class InputComponent {
 
   @Input() type = 'text';
 
+  @Input() maxlength: string = "";
+
   errorMessages: Record<string, string> = {
     required: "The field is required"
   }

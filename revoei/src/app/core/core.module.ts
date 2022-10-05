@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NavBarComponent } from "@shared/nav-bar/nav-bar.component";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -38,6 +38,7 @@ import { MatIconModule } from '@angular/material/icon';
   ],
   exports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule,
     NgbModule,
