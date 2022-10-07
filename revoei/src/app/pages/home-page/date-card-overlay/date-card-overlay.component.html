@@ -1,33 +1,11 @@
 <div class='overlay-container' title>
     <div class="stars-top-right">
-        <mat-icon *ngFor="let number of [1, 2, 3, 4, 5]" [ngClass]="{'checked': number <= date.stars}">star</mat-icon>
+        <mat-icon *ngFor="let number of [1, 2, 3, 4, 5]" [ngClass]="{'checked': number <= stars}">star</mat-icon>
     </div>
 
     <div class='row title mb-2'>
         <div class='col-12'>
-            <h1>{{date.name}}</h1>
+            <h1>{{name}}</h1>
         </div>
-    </div>
-
-    <div class='row description'>
-        <!-- <div class='col-12'>
-            <small>{{date.address}}, {{date.addressNumber}}, {{date.addressComplement}} - {{date.neighborhood}}. {{date.postalCode}}. {{date.city}} - {{date.fu}}</small>
-        </div> -->
-        <div class='col-12'>
-            <small>{{date.description}}</small>
-        </div>
-    </div>
-    <div class='links mb-2'>
-        <div class="row">
-            <div class="col stars">
-                <mat-icon *ngFor="let number of [1, 2, 3, 4, 5]" [ngClass]="{'checked': number <= date.stars}">star</mat-icon>
-            </div>
-            <div class="col">
-                <a class='link details' href='/home' target='_blank'>
-                    <mat-icon>open_in_new</mat-icon>
-                </a>
-            </div>
-        </div>
-        
     </div>
 </div>

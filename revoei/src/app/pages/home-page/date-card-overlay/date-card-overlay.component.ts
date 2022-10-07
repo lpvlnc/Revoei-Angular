@@ -8,23 +8,8 @@ import { RevoeiDate } from '@shared/interfaces/revoei-date';
 })
 export class DateCardOverlayComponent implements OnInit {
 
-  @Input() date: RevoeiDate = {
-    id: 0,
-    name: '',
-    description: '',
-    host: '',
-    neighborhood: '',
-    postalCode: '',
-    city: '',
-    fu: '',
-    address: '',
-    addressNumber: 0,
-    addressComplement: '',
-    mainPhoto: 0,
-    upVotes: 0,
-    downVotes: 0,
-    stars: 0
-  };
+  @Input() name: string = '';
+  @Input() stars: number = 0;
   
   constructor() { }
 

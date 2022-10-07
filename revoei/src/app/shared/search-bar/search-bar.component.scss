@@ -1,0 +1,36 @@
+
+.input__container {
+    position: relative;
+    width: 100%;
+}
+  
+.input__field {
+    caret-color: var(--color-primary);
+    font-family: inherit;
+    width: 0%;
+    border: 0;
+    border-bottom: 2px solid var(--color-primary);
+    outline: 0;
+    font-size: 1.3rem;
+    padding: 7px 0;
+    background: transparent;
+    transition: var(--transition-default);
+    border-image: linear-gradient(to right, var(--color-primary), var(--color-primary-variant));
+    border-image-slice: 1;
+    float: right;
+    z-index: 1000;
+}
+    
+.expanded {
+    width: 100%;
+}
+
+button {
+    //position: absolute;
+    width: 24px;
+    //right: 2%;
+    //top: 1%;
+    //float: right;
+    background-color: transparent;
+    color: var(--color-primary);
+}

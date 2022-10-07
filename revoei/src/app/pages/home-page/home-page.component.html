@@ -1,11 +1,10 @@
-<!-- <app-search-bar></app-search-bar> -->
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <input type="text" (keyup)="filter()" [(ngModel)]="search">Pesquisar
+        <div class="col-12 p-0">
+            <app-search-bar></app-search-bar> 
         </div>
     </div>
-    <div class="row">
+    <div class="row px-1">
         <div class="col-6 col-lg-4 col-xl-3 p-1" *ngFor="let date of filteredDates">
             <app-date-card [date]="date"></app-date-card>
         </div>
