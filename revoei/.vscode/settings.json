@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/2b21b2bc-e2f5-43b5-963c-26e2590f5be9/AppServices/subscriptions/2b21b2bc-e2f5-43b5-963c-26e2590f5be9/resourceGroups/revoei-api_group/providers/Microsoft.Web/sites/revoei",
+    "appService.deploySubpath": "dist\\revoei"
+}
