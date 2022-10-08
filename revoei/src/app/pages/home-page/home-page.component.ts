@@ -11,7 +11,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomePageComponent implements OnInit {
 
   search: string = "";
-
   allDates: RevoeiDate[] = [];
   filteredDates: RevoeiDate[] = [];
   
@@ -36,5 +35,10 @@ export class HomePageComponent implements OnInit {
 
   filter() {
     this.filteredDates = this.allDates.filter(date => date.name.includes(this.search));
+  }
+
+  searchChanged(value: string) {
+    this.search = value;
+    this.filter();
   }
 }

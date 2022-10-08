@@ -1,4 +1,5 @@
-import { Input } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { EventEmitter, Input, Output } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,6 +11,8 @@ export class SearchBarComponent implements OnInit {
 
   expanded: boolean = false;
   icon: string = 'search'
+  search: string = '';
+  @Output() valueChange = new EventEmitter();
 
   constructor() { }
 
@@ -26,4 +29,9 @@ export class SearchBarComponent implements OnInit {
       this.icon = 'search'
     }
   }
+
+  changed() {
+    this.valueChange.emit(this.search);
+  }
+
 }

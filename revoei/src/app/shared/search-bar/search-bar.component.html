@@ -1,9 +1,8 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-11">
-            <input type="text" class="input__field" [ngClass]="{ 'expanded' : expanded == true }">
+            <input type="text" class="input__field" [ngClass]="{ 'expanded' : expanded == true }" [(ngModel)]="search" (keyup)="changed()">
         </div>
-
         <div class="col-1 p-0 mt-2">
             <button class="" (click)="expand()">
                 <mat-icon class="icon">{{icon}}</mat-icon>
