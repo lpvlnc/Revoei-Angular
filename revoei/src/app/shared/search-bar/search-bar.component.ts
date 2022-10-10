@@ -26,7 +26,9 @@ export class SearchBarComponent implements OnInit {
     }
     else
     {
+      this.search = '';
       this.icon = 'search'
+      this.changed();
     }
   }
 
