@@ -19,6 +19,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profile-page/profile-page.module').then((m) => m.ProfilePageModule),
   },
   {
+    path: 'party-house/:id',
+    loadChildren: () => import('./pages/party-house-page/party-house-page.module').then((m) => m.PartyHousePageModule),
+  },
+  {
+    path: 'party/:id',
+    loadChildren: () => import('./pages/party-page/party-page.module').then((m) => m.PartyPageModule),
+  },
+  {
     path: 'dates',
     loadChildren: () => import('./pages/dates-page/dates-page.module').then((m) => m.DatesPageModule),
   },

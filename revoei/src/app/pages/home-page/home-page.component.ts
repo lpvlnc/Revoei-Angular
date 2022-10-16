@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RevoeiDate } from '@shared/interfaces/revoei-date';
-import { RevoeiDateService } from '@shared/services/revoei-date.service';
+import { Party } from '@core/interfaces/party';
+import { PartyService } from '@core/services/party.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
@@ -11,22 +11,22 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class HomePageComponent implements OnInit {
 
   search: string = "";
-  allDates: RevoeiDate[] = [];
-  filteredDates: RevoeiDate[] = [];
+  allParties: Party[] = [];
+  filteredParties: Party[] = [];
   
-  constructor(private revoeiDateService: RevoeiDateService,
+  constructor(private partyService: PartyService,
               private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
-    this.getDates();
+    this.getParties();
   }
 
-  getDates() {
+  getParties() {
     this.spinner.show();
-    this.revoeiDateService.get().subscribe({
-      next: (data: RevoeiDate[]) => {
-        this.allDates = data;
-        this.filteredDates = data;
+    this.partyService.get().subscribe({
+      next: (data: Party[]) => {
+        this.allParties = data;
+        this.filteredParties = data;
       }
     }).add(() =>{
       this.spinner.hide();
@@ -34,7 +34,7 @@ export class HomePageComponent implements OnInit {
   }
 
   filter() {
-    this.filteredDates = this.allDates.filter(date => date.name.includes(this.search));
+    this.filteredParties = this.allParties.filter(party => party.name.includes(this.search));
   }
 
   searchChanged(value: string) {

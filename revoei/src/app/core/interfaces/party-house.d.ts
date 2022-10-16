@@ -1,8 +1,8 @@
-export interface RevoeiDate {
+export interface PartyHouse {
     id: number;
+    cnpj: string;
     name: string;
     description: string;
-    host: string;
     neighborhood: string;
     postalCode: string;
     city: string;
@@ -10,8 +10,5 @@ export interface RevoeiDate {
     address: string;
     addressNumber: number;
     addressComplement: string;
-    mainPhoto: number;
-    upVotes: number;
-    downVotes: number;
-    stars: number;
+    photo: string;
 }

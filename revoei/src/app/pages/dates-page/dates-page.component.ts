@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RevoeiDate } from '@shared/interfaces/revoei-date';
-import { RevoeiDateService } from '@shared/services/revoei-date.service';
 
 @Component({
   selector: 'app-dates-page',

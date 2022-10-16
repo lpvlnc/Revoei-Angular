@@ -1,0 +1,13 @@
+<a routerLink="/party/{{id}}">
+    <div class='overlay-container' title>
+        <div class="stars-top-right">
+            <mat-icon *ngFor="let number of [1, 2, 3, 4, 5]" [ngClass]="{'checked': number <= stars}">star</mat-icon>
+        </div>
+    
+        <div class='row title mb-2'>
+            <div class='col-12'>
+                <h1>{{name}}</h1>
+            </div>
+        </div>
+    </div>
+</a>

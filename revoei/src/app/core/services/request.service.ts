@@ -9,8 +9,8 @@ export type RequestMethod = 'get' | 'post' | 'put' | 'delete';
 })
 export class RequestService implements OnDestroy {
 
-  baseUrl = 'https://revoei-api.azurewebsites.net/api/';
-  //baseUrl = 'https://localhost:44334/api/';
+  //baseUrl = 'https://revoei-api.azurewebsites.net/api/';
+  baseUrl = 'https://localhost:44334/api/';
 
   private subscriptions: Subscription = new Subscription(() => { });
 
