@@ -3,11 +3,16 @@ export interface Login {
     password: string;
 }
 
-export interface Token {
+export interface TokenBase {
     token: string;
+}
+
+export interface Token extends TokenBase {
     minutesTillExpires: number;
 }
 
-export interface EmailConfirmationToken {
+export interface ResetPasswordModel {
+    password: string;
+    passwordConfirmation: string;
     token: string;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { EmailConfirmationToken } from '@core/interfaces/login';
+import { TokenBase } from '@core/interfaces/login';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { RegistrationPageEmailConfirmationService } from './registration-page-email-confirmation.service';
 
@@ -15,19 +16,21 @@ export class RegistrationPageEmailConfirmationComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private registrationPageEmailConfirmationService: RegistrationPageEmailConfirmationService,
               private toaster: ToastrService,
-              private router: Router) { }
+              private router: Router,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     const tokenString = this.route.snapshot.paramMap.get('token');
     if (!!tokenString){
-      const tokenObj: EmailConfirmationToken = {
+      const tokenObj: TokenBase = {
         token: tokenString
       }
       this.confirmEmail(tokenObj);
     }
   }
 
-  confirmEmail(token: EmailConfirmationToken) {
+  confirmEmail(token: TokenBase) {
+    this.spinner.show();
     this.registrationPageEmailConfirmationService.confirmEmail(token).subscribe({
       next: (response: string) => {
         this.toaster.success(response);
@@ -36,6 +39,8 @@ export class RegistrationPageEmailConfirmationComponent implements OnInit {
       complete: () => {
         this.router.navigate(["/login"]);
       }
+    }).add(() => {
+      this.spinner.hide();
     })
   }
 }

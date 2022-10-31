@@ -16,12 +16,14 @@
 :root {
     // color
     --color-background: #ffffff;
-    --color-primary: #b74bec;
-    --color-primary-variant: #d27cfd;
+    --color-primary: rgb(183, 75, 235);
+    --color-primary-dark: rgb(133, 25, 185);
+    --color-primary-variant: rgb(186, 106, 223);
     --color-secondary: #ffffff;
     --color-black: #000000;
     --color-text: #444444;
-	--color-gray: #bbb;
+	--color-gray: rgb(187, 187, 187);
+    --color-gray-light: rgb(238, 238, 238);
 
 	// transitions
     --transition-default: all 400ms ease;
@@ -70,9 +72,9 @@ img {
 }
 
 a {
-    color: var(--color-gray);
+    color: var(--color-primary);
 }
 
 a:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-dark);
 }

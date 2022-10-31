@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Registration } from '@core/interfaces/registration';
 import { NavbarService } from '@core/services/nav-bar.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 import { RegistrationPageService } from './registration-page.service';
 
@@ -27,13 +28,15 @@ export class RegistrationPageComponent implements OnInit {
               private registrationPageService: RegistrationPageService,
               private router: Router,
               private toaster: ToastrService,
-              private navBarService: NavbarService) { }
+              private navBarService: NavbarService,
+              private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.navBarService.hide();
   }
 
   registration() {
+    this.spinner.show();
     const registration: Registration = Object.assign(this.formGroup.value);
     registration.emailConfirmed = false;
     registration.profilePicture = '';
@@ -45,6 +48,8 @@ export class RegistrationPageComponent implements OnInit {
       complete: () => {
         this.router.navigate(["/registration/done/" + registration.email]);
       }
+    }).add(() => {
+      this.spinner.hide();
     });
   }
 

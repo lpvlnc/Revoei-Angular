@@ -48,7 +48,7 @@ export class LoginPageComponent implements OnInit {
         console.error(e);
       }
     }).add(() => {
-      this.spinner.show();
+      this.spinner.hide();
     })
   }
 

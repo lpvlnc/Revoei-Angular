@@ -13,24 +13,22 @@
                         <app-input id="password" label="Password" type="password" [control]="formGroup.controls.password" maxlength="64"></app-input>
                     </div>
                 </div>
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col">
-                        <app-button label='Login' type="primary" (click)="login()"></app-button>
+                        <a href="forgot-password" class="float-end mt-3">Forgot password?</a>
                     </div>
                 </div>
-                <div class="row mt-5">
+                <div class="row mt-3">
                     <div class="col">
-                        <app-button label='Esqueceu a senha?' type="tertiary" (click)="forgotPassword()"></app-button>
+                        <app-button label='Login' type="primary" (click)="login()" [disabled]="!formGroup.valid"></app-button>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        <p class="text-center">Dont have an account yet? <a href="registration">Sign up</a></p>
                     </div>
                 </div>
             </form>
-        </div>
-    </div>
-</div>
-<div class="container fixed-bottom mb-5">
-    <div class="row">
-        <div class="col">
-            <app-button label='Cadastrar-se' type="tertiary" (click)="redirectToRegistrationPage()"></app-button>
         </div>
     </div>
 </div>

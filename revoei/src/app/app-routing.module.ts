@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/dates-page/dates-page.module').then((m) => m.DatesPageModule),
   },
   {
+    path: 'forgot-password',
+    loadChildren: () => import('./pages/forgot-password-page/forgot-password-page.module').then((m) => m.ForgotPasswordPageModule),
+  },
+  {
     path: '**',
     redirectTo: 'home'
   }
