@@ -10,6 +10,7 @@
     cursor: pointer;
     transition: var(--transition-default);
     border: 1px solid transparent;
+    border-color: var(--color-primary);
 }
 
 .button-primary {
@@ -25,12 +26,13 @@
 
 .button-secondary {
     background: var(--color-secondary);
-    color: var(--color-text);
+    color: var(--color-primary);
 }
 
 .button-secondary:hover {
-    background: var(--color-primary);
-    color: var(--color-secondary);
+    background: var(--color-gray-light);
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
 }
 
 .button-tertiary {
@@ -55,5 +57,19 @@
 }
 
 i {
+    color: var(--color-secondary);
     margin-right: 10px;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+div {
+    display: flex;
+    align-items: center;
+}
+
+span {
+    margin-top: 5px;;
 }

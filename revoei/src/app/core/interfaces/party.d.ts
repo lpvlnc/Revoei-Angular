@@ -1,3 +1,5 @@
+import { PartyHouse } from "./party-house";
+
 export interface Party {
     id: number;
     partyHouseId: number;
@@ -7,4 +9,5 @@ export interface Party {
     downVotes: number;
     stars: number;
     photo: string;
+    partyHouse: PartyHouse;
 }

@@ -16,7 +16,21 @@ export class PartyCardComponent implements OnInit {
     upVotes: 0,
     downVotes: 0,
     stars: 0,
-    photo: '../../assets/images/parties/0.jpg'
+    photo: '../../assets/images/parties/0.jpg',
+    partyHouse: {
+      id: 0,
+      cnpj: '',
+      name: '',
+      description: '',
+      neighborhood: '',
+      postalCode: '',
+      city: '',
+      fu: '',
+      address: '',
+      addressNumber: 0,
+      addressComplement: '',
+      photo: '../../assets/images/parties/0.jpg'
+    }
   };
   
   constructor() { }
