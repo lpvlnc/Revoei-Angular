@@ -1,18 +1,21 @@
 <app-title [title]="party.name"></app-title>
-<div class="container">
+<div class="container main">
     <div class="row">
         <div class="col p-0">
             <img [src]="party.photo" alt="">
         </div>
     </div>
-    <div class="row pb-2">
+    <div class="row pt-2 pb-1">
         <div class="col">
-            <h1>
-                <a routerLink="/party-house/{{party.partyHouse.id}}">{{party.partyHouse.name}}</a>
-            </h1>
+            <a routerLink="/party-house/{{party.partyHouse.id}}">{{party.partyHouse.name}}</a>
         </div>
     </div>
     <div class="row">
+        <div class="col">
+            <p>&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore illum laboriosam magnam aliquam, quia dolore perspiciatis ipsa aspernatur odio incidunt. Quam non deleniti nesciunt at eaque temporibus doloribus nobis molestias.sssssssssssssssssssssssssssss</p>
+        </div>
+    </div>
+    <div class="row pt-2">
         <div class="col-6">
             <h2>Horário</h2>
         </div>
@@ -28,6 +31,24 @@
             <p>Grátis</p>
         </div>
     </div>
+    <div class="row pt-2">
+        <div class="col-6">
+            <h2>Estilo de música</h2>
+        </div>
+        <div class="col-6">
+            <h2>Open?</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <p>Eletrônica</p>
+        </div>
+        <div class="col-6">
+            <p>Não</p>
+        </div>
+    </div>
+</div>
+<div class="container position-absolute bottom-0 pb-3">
     <div class="row">
         <div class="col">
             <app-button label='Confirmar presença' type="primary" icon="check_circle"></app-button>

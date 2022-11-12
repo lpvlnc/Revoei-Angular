@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Party } from '@core/interfaces/party';
+import { NavbarService } from '@core/services/nav-bar.service';
 import { PartyService } from '@core/services/party.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -38,9 +39,11 @@ export class PartyPageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private partyService: PartyService,
-              private spinner: NgxSpinnerService) { }
+              private spinner: NgxSpinnerService,
+              private navBarService: NavbarService) { }
 
   ngOnInit(): void {
+    this.navBarService.hide();
     const id = this.route.snapshot.paramMap.get('id');
     if(!!id)
       this.getPartyByID(parseInt(id));
@@ -51,6 +54,7 @@ export class PartyPageComponent implements OnInit {
     this.partyService.getByID(id).subscribe({
       next: (data: Party) => {
         this.party = data;
+        console.log(this.party);
       }
     }).add(() =>{
       this.spinner.hide();

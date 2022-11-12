@@ -11,6 +11,21 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class PartyHousePageComponent implements OnInit {
 
+  partyHouse: PartyHouse = {
+    id: 0,
+    cnpj: '',
+    name: '',
+    description: '',
+    neighborhood: '',
+    postalCode: '',
+    city: '',
+    fu: '',
+    address: '',
+    addressNumber: 0,
+    addressComplement: '',
+    photo: '../../assets/images/parties/0.jpg'
+  }
+
   constructor(private route: ActivatedRoute,
               private partyHouseService: PartyHouseService,
               private spinner: NgxSpinnerService) { }
@@ -25,7 +40,7 @@ export class PartyHousePageComponent implements OnInit {
     this.spinner.show();
     this.partyHouseService.getByID(id).subscribe({
       next: (data: PartyHouse) => {
-        console.log(data);
+        this.partyHouse = data;
       }
     }).add(() =>{
       this.spinner.hide();
