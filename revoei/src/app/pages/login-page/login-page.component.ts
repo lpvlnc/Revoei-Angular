@@ -32,6 +32,8 @@ export class LoginPageComponent implements OnInit {
   }
 
   login(){
+    if (!this.formGroup.valid)
+      return;
     this.spinner.show();
     const login: Login = Object.assign(this.formGroup.value);
     this.loginPageService.login(login).subscribe({
