@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Party } from '@core/interfaces/party';
 import { PartyHouse } from '@core/interfaces/party-house';
 import { NavbarService } from '@core/services/nav-bar.service';
@@ -94,13 +94,16 @@ export class PartyHousePageComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private partyHouseService: PartyHouseService,
               private spinner: NgxSpinnerService,
-              private navBarService: NavbarService) { }
+              private navBarService: NavbarService,
+              private router: Router) { }
 
   ngOnInit(): void {
     this.navBarService.hide();
     const id = this.route.snapshot.paramMap.get('id');
-    if(!!id)
+    if(!!id && id != '0')
       this.getPartyHouseByID(parseInt(id));
+    else
+      this.router.navigate(["/home"]);
   }
 
   getPartyHouseByID(id: number) {
