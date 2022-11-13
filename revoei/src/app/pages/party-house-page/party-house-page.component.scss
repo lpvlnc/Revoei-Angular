@@ -1,0 +1,19 @@
+h2 {
+    text-align: start;
+}
+
+.expanded {
+    flex: auto;
+    overflow-y: scroll;
+}
+
+img {
+    max-height: 250px;
+}
+
+.main {
+    height: 100%;
+    display: flex;
+    margin: 0;
+	flex-flow: column nowrap;
+}

@@ -6,7 +6,6 @@ import { NavBarModule } from '@shared/nav-bar/nav-bar.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TitleComponent } from './shared/title/title.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +15,7 @@ import { TitleComponent } from './shared/title/title.component';
     NgxSpinnerModule.forRoot({ type: 'la-line-spin-clockwise-fade la-2x'}),
     AppRoutingModule,
     NavBarModule,
-    CoreModule,
+    CoreModule
   ],
   providers: [],
   schemas: [

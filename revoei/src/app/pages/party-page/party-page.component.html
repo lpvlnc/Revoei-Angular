@@ -1,62 +1,64 @@
 <app-title [title]="party.name"></app-title>
-<div class="container main">
+<div class="container main h-100">
     <div class="row">
         <div class="col p-0">
             <img [src]="party.photo" alt="">
         </div>
     </div>
-    <div class="row pt-2 pb-1">
-        <div class="col">
-            <a routerLink="/party-house/{{party.partyHouse.id}}">{{party.partyHouse.name}}</a>
+    <div class="expanded">
+        <div class="row pt-2 pb-1">
+            <div class="col">
+                <a routerLink="/party-house/{{party.partyHouse.id}}">{{party.partyHouse.name}}</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <p>&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore illum laboriosam magnam aliquam, quia dolore perspiciatis ipsa aspernatur odio incidunt. Quam non deleniti nesciunt at eaque temporibus doloribus nobis molestias.sssssssssssssssssssssssssssss</p>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-6">
+                <h2>Horário</h2>
+            </div>
+            <div class="col-6">
+                <h2>Entrada</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>18:00 - 04:00</p>
+            </div>
+            <div class="col-6">
+                <p>Grátis</p>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-6">
+                <h2>Estilo de música</h2>
+            </div>
+            <div class="col-6">
+                <h2>Open?</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>Eletrônica</p>
+            </div>
+            <div class="col-6">
+                <p>Não</p>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <p>&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore illum laboriosam magnam aliquam, quia dolore perspiciatis ipsa aspernatur odio incidunt. Quam non deleniti nesciunt at eaque temporibus doloribus nobis molestias.sssssssssssssssssssssssssssss</p>
+    <div class="container mb-3">
+        <div class="row">
+            <div class="col">
+                <app-button label='Confirmar presença' type="primary" icon="check_circle"></app-button>
+            </div>
         </div>
-    </div>
-    <div class="row pt-2">
-        <div class="col-6">
-            <h2>Horário</h2>
-        </div>
-        <div class="col-6">
-            <h2>Entrada</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <p>18:00 - 04:00</p>
-        </div>
-        <div class="col-6">
-            <p>Grátis</p>
-        </div>
-    </div>
-    <div class="row pt-2">
-        <div class="col-6">
-            <h2>Estilo de música</h2>
-        </div>
-        <div class="col-6">
-            <h2>Open?</h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <p>Eletrônica</p>
-        </div>
-        <div class="col-6">
-            <p>Não</p>
-        </div>
-    </div>
-</div>
-<div class="container position-absolute bottom-0 pb-3">
-    <div class="row">
-        <div class="col">
-            <app-button label='Confirmar presença' type="primary" icon="check_circle"></app-button>
-        </div>
-    </div>
-    <div class="row mt-2">
-        <div class="col">
-            <app-button label='Confirmados' type="secondary" icon="people"></app-button>
+        <div class="row mt-2">
+            <div class="col">
+                <app-button label='Confirmados' type="secondary" icon="people"></app-button>
+            </div>
         </div>
     </div>
 </div>

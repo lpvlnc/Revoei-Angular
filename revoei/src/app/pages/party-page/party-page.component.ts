@@ -33,6 +33,7 @@ export class PartyPageComponent implements OnInit {
       address: '',
       addressNumber: 0,
       addressComplement: '',
+      phone: '',
       photo: '../../assets/images/parties/0.jpg'
     }
   };

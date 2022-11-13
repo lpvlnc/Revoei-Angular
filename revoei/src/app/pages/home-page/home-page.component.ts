@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Party } from '@core/interfaces/party';
+import { NavbarService } from '@core/services/nav-bar.service';
 import { PartyService } from '@core/services/party.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 
@@ -15,9 +16,11 @@ export class HomePageComponent implements OnInit {
   filteredParties: Party[] = [];
   
   constructor(private partyService: PartyService,
-              private spinner: NgxSpinnerService) { }
+              private spinner: NgxSpinnerService,
+              private navBarService: NavbarService) { }
 
   ngOnInit(): void {
+    this.navBarService.show();
     this.getParties();
   }
 

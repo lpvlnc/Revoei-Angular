@@ -10,5 +10,6 @@ export interface PartyHouse {
     address: string;
     addressNumber: number;
     addressComplement: string;
+    phone: string;
     photo: string;
 }
