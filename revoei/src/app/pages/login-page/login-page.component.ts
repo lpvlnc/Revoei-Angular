@@ -38,9 +38,20 @@ export class LoginPageComponent implements OnInit {
     const login: Login = Object.assign(this.formGroup.value);
     this.loginPageService.login(login).subscribe({
       next: (response: Token) => {
-        const token = response.token;
-        if (!!token) {
-          localStorage.setItem("jwt", token);
+        if (!!response && !!response.token) {
+          localStorage.setItem("jwt", response.token);
+          localStorage.setItem("minutes_till_expires", response.minutesTillExpires.toString());
+
+          var refreshDate = new Date();
+          refreshDate.setTime(refreshDate.getTime() + ((response.minutesTillExpires / 2) * 60 * 1000));
+          localStorage.setItem("jwt_refresh", ""+refreshDate.getTime());
+          console.log(refreshDate);
+
+          var expireDate = new Date();
+          expireDate.setTime(expireDate.getTime() + (response.minutesTillExpires * 60 * 1000));
+          console.log(expireDate);
+          localStorage.setItem("jwt_expire", ""+expireDate.getTime());
+
           this.invalidLogin = false;
           this.router.navigate(["/home"]);
         }
