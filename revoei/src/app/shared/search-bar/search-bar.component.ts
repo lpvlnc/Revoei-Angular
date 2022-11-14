@@ -1,5 +1,5 @@
 import { outputAst } from '@angular/compiler';
-import { EventEmitter, Input, Output } from '@angular/core';
+import { EventEmitter, Input, Output, Renderer2 } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -14,7 +14,7 @@ export class SearchBarComponent implements OnInit {
   search: string = '';
   @Output() valueChange = new EventEmitter();
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
   }
@@ -23,6 +23,7 @@ export class SearchBarComponent implements OnInit {
     this.expanded = !this.expanded;
     if(this.expanded){
       this.icon = 'cancel'
+      this.renderer.selectRootElement("#searchBar").focus();
     }
     else
     {
