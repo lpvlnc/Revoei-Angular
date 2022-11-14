@@ -21,12 +21,13 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
               private spinner: NgxSpinnerService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    req = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${localStorage.getItem("jwt")}`)
-    });
-
+    
     var token = localStorage.getItem("jwt") ?? "";
-    if (!!token) {
+    if (token != "") {
+      req = req.clone({
+        headers: req.headers.set('Authorization', `Bearer ${localStorage.getItem("jwt")}`)
+      });
+
       var dateNow = new Date();
       var refreshString = localStorage.getItem("jwt_refresh") ?? "0";
       var refreshDate = new Date(parseInt(refreshString));
@@ -36,7 +37,6 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
 
       if (dateNow >= refreshDate && dateNow <= expiresDate && !this.updatingSession) {
         this.updatingSession = true;
-        console.log('true');
         this.updateUserSession(token).subscribe({
           next: (response: Token) => {
             if (!!response && !!response.token) {
@@ -77,6 +77,7 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
         } else {
             console.error("Generic error");
         }
+        console.log(error);
         return throwError(() => new Error(error.messsage));
       })
     )

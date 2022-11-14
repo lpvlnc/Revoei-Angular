@@ -17,4 +17,16 @@ export class PartyService {
   getByID(id: number): Observable<Party> {
     return this.request.Request('get', `Party/GetByID/${id}`);
   }
+
+  userPresenceConfirmed(userId: number, partyId: number): Observable<boolean> {
+    return this.request.Request('get', `UserParty/UserPresenceConfirmed/${userId}/${partyId}`);
+  }
+
+  confirmPresence(userId: number, partyId: number): Observable<string> {
+    return this.request.Request('post', `UserParty/ConfirmPresence/${userId}/${partyId}`, null, { responseType: 'text' });
+  }
+
+  cancelPresence(userId: number, partyId: number): Observable<string> {
+    return this.request.Request('delete', `UserParty/CancelPresence/${userId}/${partyId}`, null, { responseType: 'text' });
+  }
 }

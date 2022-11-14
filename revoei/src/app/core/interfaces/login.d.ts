@@ -16,3 +16,9 @@ export interface ResetPasswordModel {
     passwordConfirmation: string;
     token: string;
 }
+
+export interface LoginResponse {
+    id: number;
+    username: string;
+    token: Token;
+}

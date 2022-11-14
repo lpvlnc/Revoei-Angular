@@ -35,7 +35,7 @@ export class RequestService implements OnDestroy {
         request = this.http.put(url, body);
         break;
       case 'delete':
-        request = this.http.delete(url);
+        request = this.http.delete(url, options);
         break;
       default:
         throw new Error(`${method} is not a valid request type.`);

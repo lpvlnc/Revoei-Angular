@@ -52,7 +52,13 @@
     <div class="container mb-3">
         <div class="row">
             <div class="col">
-                <app-button label='Confirmar presença' type="primary" icon="check_circle"></app-button>
+                
+                <div *ngIf="presenceConfirmed; else elseBlock">
+                    <app-button label='Cancelar presença' type="primary" icon="cancel" (click)="confirmOrCancelPresence()"></app-button>
+                </div>
+                <ng-template #elseBlock>
+                    <app-button label='Confirmar presença' type="primary" icon="check_circle" (click)="confirmOrCancelPresence()"></app-button>
+                </ng-template>
             </div>
         </div>
         <div class="row mt-2">

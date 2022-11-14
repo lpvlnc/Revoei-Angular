@@ -4,6 +4,7 @@ import { Party } from '@core/interfaces/party';
 import { NavbarService } from '@core/services/nav-bar.service';
 import { PartyService } from '@core/services/party.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-party-page',
@@ -38,11 +39,14 @@ export class PartyPageComponent implements OnInit {
     }
   };
 
+  presenceConfirmed: boolean = false;
+
   constructor(private route: ActivatedRoute,
               private partyService: PartyService,
               private spinner: NgxSpinnerService,
               private navBarService: NavbarService,
-              private router: Router) { }
+              private router: Router,
+              private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.navBarService.hide();
@@ -58,10 +62,52 @@ export class PartyPageComponent implements OnInit {
     this.partyService.getByID(id).subscribe({
       next: (data: Party) => {
         this.party = data;
-        console.log(this.party);
+      }
+    }).add(() =>{
+      this.spinner.hide();
+      this.userPresenceConfirmed(parseInt(localStorage.getItem("id") ?? "0"), id);
+    });
+  }
+
+  userPresenceConfirmed(userId: number, partyId: number) {
+    this.spinner.show();
+    this.partyService.userPresenceConfirmed(userId, partyId).subscribe({
+      next: (response: boolean) => {
+       this.presenceConfirmed = response;
       }
     }).add(() =>{
       this.spinner.hide();
     });
+  }
+
+  confirmPresence() {
+    this.spinner.show();
+    this.partyService.confirmPresence(parseInt(localStorage.getItem("id") ?? "0"), this.party.id).subscribe({
+      next: (response: string) => {
+        this.toastr.success(response);
+        this.presenceConfirmed = true;
+      }
+    }).add(() =>{
+      this.spinner.hide();
+    });
+  }
+
+  cancelPresence() {
+    this.spinner.show();
+    this.partyService.cancelPresence(parseInt(localStorage.getItem("id") ?? "0"), this.party.id).subscribe({
+      next: (response: string) => {
+        this.toastr.warning(response);
+        this.presenceConfirmed = false;
+      }
+    }).add(() =>{
+      this.spinner.hide();
+    });
+  }
+
+  confirmOrCancelPresence() {
+    if (this.presenceConfirmed)
+      this.cancelPresence();
+    else
+      this.confirmPresence();
   }
 }

@@ -113,7 +113,6 @@ export class PartyHousePageComponent implements OnInit {
         this.partyHouse = data;
         this.partyHouse.postalCode = this.partyHouse.postalCode.replace(/^(\d{0,5})(\d{0,3})/, "$1-$2");
         this.partyHouse.phone = this.partyHouse.phone.replace(/^(\d{0,2})(\d{0,1})(\d{0,4})(\d{0,4})/, "($1) $2 $3-$4");
-        console.log(this.partyHouse);
       }
     }).add(() =>{
       this.spinner.hide();

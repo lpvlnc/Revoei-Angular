@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Login, Token } from '@core/interfaces/login';
+import { Login, LoginResponse } from '@core/interfaces/login';
 import { NavbarService } from '@core/services/nav-bar.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { LoginPageService } from './login-page.service';
@@ -37,23 +37,27 @@ export class LoginPageComponent implements OnInit {
     this.spinner.show();
     const login: Login = Object.assign(this.formGroup.value);
     this.loginPageService.login(login).subscribe({
-      next: (response: Token) => {
+      next: (response: LoginResponse) => {
         if (!!response && !!response.token) {
-          localStorage.setItem("jwt", response.token);
-          localStorage.setItem("minutes_till_expires", response.minutesTillExpires.toString());
+
+          localStorage.setItem("id", response.id.toString());
+          localStorage.setItem("username", response.username);
+
+          const tokenObj = response.token;
+          localStorage.setItem("jwt", response.token.token);
+          localStorage.setItem("minutes_till_expires", tokenObj.minutesTillExpires.toString());
 
           var refreshDate = new Date();
-          refreshDate.setTime(refreshDate.getTime() + ((response.minutesTillExpires / 2) * 60 * 1000));
+          refreshDate.setTime(refreshDate.getTime() + ((tokenObj.minutesTillExpires / 2) * 60 * 1000));
           localStorage.setItem("jwt_refresh", ""+refreshDate.getTime());
-          console.log(refreshDate);
 
           var expireDate = new Date();
-          expireDate.setTime(expireDate.getTime() + (response.minutesTillExpires * 60 * 1000));
-          console.log(expireDate);
+          expireDate.setTime(expireDate.getTime() + (tokenObj.minutesTillExpires * 60 * 1000));
           localStorage.setItem("jwt_expire", ""+expireDate.getTime());
 
           this.invalidLogin = false;
           this.router.navigate(["/home"]);
+          console.log(localStorage);
         }
       },
       error: (e) => {
