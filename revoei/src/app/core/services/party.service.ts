@@ -18,6 +18,10 @@ export class PartyService {
     return this.request.Request('get', `Party/GetByID/${id}`);
   }
 
+  getByPartyHouseId(id: number): Observable<Party[]> {
+    return this.request.Request('get', `Party/GetByPartyHouseId/${id}`);
+  }
+
   userPresenceConfirmed(userId: number, partyId: number): Observable<boolean> {
     return this.request.Request('get', `UserParty/UserPresenceConfirmed/${userId}/${partyId}`);
   }

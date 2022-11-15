@@ -6,6 +6,7 @@ import { NavbarService } from '@core/services/nav-bar.service';
 import { PartyHouseService } from '@core/services/party-house.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { SwiperOptions } from 'swiper';
+import { PartyService } from '@core/services/party.service';
 
 @Component({
   selector: 'app-party-house-page',
@@ -30,56 +31,7 @@ export class PartyHousePageComponent implements OnInit {
     photo: '../../assets/images/parties/0.jpg'
   }
 
-  parties: Party[] = [{
-    id: 0,
-    partyHouseId: 0,
-    name: 'festa',
-    description: '',
-    upVotes: 0,
-    downVotes: 0,
-    stars: 0,
-    photo: '../../assets/images/parties/0.jpg',
-    partyHouse: {
-      id: 0,
-      cnpj: '',
-      name: '',
-      description: '',
-      neighborhood: '',
-      postalCode: '',
-      city: '',
-      fu: '',
-      address: '',
-      addressNumber: 0,
-      addressComplement: '',
-      phone: '',
-      photo: '../../assets/images/parties/0.jpg'
-    }
-  },
-  {
-    id: 0,
-    partyHouseId: 0,
-    name: '',
-    description: '',
-    upVotes: 0,
-    downVotes: 0,
-    stars: 0,
-    photo: '../../assets/images/parties/0.jpg',
-    partyHouse: {
-      id: 0,
-      cnpj: '',
-      name: '',
-      description: '',
-      neighborhood: '',
-      postalCode: '',
-      city: '',
-      fu: '',
-      address: '',
-      addressNumber: 0,
-      addressComplement: '',
-      phone: '',
-      photo: '../../assets/images/parties/0.jpg'
-    }
-  }];
+  parties: Party[] = [];
 
   public swiperConfig: SwiperOptions = {
     centeredSlides: true,
@@ -93,6 +45,7 @@ export class PartyHousePageComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private partyHouseService: PartyHouseService,
+              private partyService: PartyService,
               private spinner: NgxSpinnerService,
               private navBarService: NavbarService,
               private router: Router) { }
@@ -100,8 +53,10 @@ export class PartyHousePageComponent implements OnInit {
   ngOnInit(): void {
     this.navBarService.hide();
     const id = this.route.snapshot.paramMap.get('partyHouseId');
-    if(!!id && id != '0')
+    if(!!id && id != '0') {
       this.getPartyHouseByID(parseInt(id));
+      this.getPartiesByPartyHouseId(parseInt(id));
+    }
     else
       this.router.navigate(["/home"]);
   }
@@ -121,5 +76,16 @@ export class PartyHousePageComponent implements OnInit {
 
   getAddress(): string {
     return `${this.partyHouse.address}, ${this.partyHouse.addressNumber} - ${this.partyHouse.neighborhood}, ${this.partyHouse.city} - ${this.partyHouse.fu}, ${this.partyHouse.postalCode}`
+  }
+
+  getPartiesByPartyHouseId(partyHouseId: number) {
+    this.spinner.show();
+    this.partyService.getByPartyHouseId(partyHouseId).subscribe({
+      next: (data: Party[]) => {
+        this.parties = data;
+      }
+    }).add(() =>{
+      this.spinner.hide();
+    });
   }
 }
