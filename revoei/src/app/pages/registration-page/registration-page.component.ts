@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Registration } from '@core/interfaces/registration';
+import { Registration } from '@shared/interfaces/registration';
 import { NavbarService } from '@core/services/nav-bar.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';

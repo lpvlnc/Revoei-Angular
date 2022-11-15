@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Party } from '@core/interfaces/party';
-import { PartyHouse } from '@core/interfaces/party-house';
+import { Party } from '@shared/interfaces/party';
+import { PartyHouse } from '@shared/interfaces/party-house';
 import { NavbarService } from '@core/services/nav-bar.service';
 import { PartyHouseService } from '@core/services/party-house.service';
 import { NgxSpinnerService } from 'ngx-spinner';
@@ -99,7 +99,7 @@ export class PartyHousePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.navBarService.hide();
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('partyHouseId');
     if(!!id && id != '0')
       this.getPartyHouseByID(parseInt(id));
     else

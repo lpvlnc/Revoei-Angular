@@ -1,0 +1,21 @@
+<app-title title="Pessoas confirmad@s"></app-title>
+<div class="container mt-3" *ngIf="confirmationList">
+    <div class="row mb-3" *ngFor="let confirmation of confirmationList">
+        <div class="col">
+            <div class="row">
+                <div class="col-4 d-flex justify-content-center">
+                    <img src="../../../assets/images/profile/0.png" alt="">
+                </div>
+                <div class="col-8">
+                    <h2>{{confirmation.firstName}} {{confirmation.lastName}}</h2>
+                    <p>{{confirmation.username}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Party } from '@core/interfaces/party';
 import { NavbarService } from '@core/services/nav-bar.service';
 import { PartyService } from '@core/services/party.service';
+import { Party } from '@shared/interfaces/party';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
 
@@ -50,7 +50,7 @@ export class PartyPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.navBarService.hide();
-    const id = this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('partyId');
     if(!!id && id != '0')
       this.getPartyByID(parseInt(id));
     else
@@ -109,5 +109,9 @@ export class PartyPageComponent implements OnInit {
       this.cancelPresence();
     else
       this.confirmPresence();
+  }
+
+  goToPartyConfirmationListPage() {
+    this.router.navigate([`party-confirmation-list/${this.party.id}`]);
   }
 }

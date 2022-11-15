@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Party } from '@core/interfaces/party';
+import { Party } from '@shared/interfaces/party';
 import { RequestService } from '@core/services/request.service';
 import { Observable } from 'rxjs';
 

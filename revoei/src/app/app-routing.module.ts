@@ -19,12 +19,16 @@ const routes: Routes = [
     loadChildren: () => import('./pages/profile-page/profile-page.module').then((m) => m.ProfilePageModule),
   },
   {
-    path: 'party-house/:id',
+    path: 'party-house/:partyHouseId',
     loadChildren: () => import('./pages/party-house-page/party-house-page.module').then((m) => m.PartyHousePageModule),
   },
   {
-    path: 'party/:id',
+    path: 'party/:partyId',
     loadChildren: () => import('./pages/party-page/party-page.module').then((m) => m.PartyPageModule),
+  },
+  {
+    path: 'party-confirmation-list/:partyId',
+    loadChildren: () => import('./pages/party-confirmation-list-page/party-confirmation-list-page.module').then((m) => m.PartyConfirmationListPageModule),
   },
   {
     path: 'dates',

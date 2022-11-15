@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Party } from '@core/interfaces/party';
 import { NavbarService } from '@core/services/nav-bar.service';
 import { PartyService } from '@core/services/party.service';
+import { Party } from '@shared/interfaces/party';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({

@@ -1,40 +1,42 @@
-<app-title [title]="partyHouse.name"></app-title>
-<div class="container main h-100">
-    <div class="row">
-        <div class="col p-0">
-            <img [src]="partyHouse.photo" alt="">
-        </div>
-    </div>
-    <div class="expanded">
-        <div class="row pt-1 pb-1">
-            <div class="col">
-                <h2>{{partyHouse.name}}</h2>
+<div class="main">
+    <app-title [title]="partyHouse.name"></app-title>
+    <div class="container main">
+        <div class="row">
+            <div class="col p-0">
+                <img [src]="partyHouse.photo" alt="">
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <p>Endereço: {{getAddress()}}</p>
+        <div class="expanded">
+            <div class="row pt-1 pb-1">
+                <div class="col">
+                    <h2>{{partyHouse.name}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Endereço: {{getAddress()}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Contato: {{partyHouse.phone}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>descrição</p>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <p>Contato: {{partyHouse.phone}}</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <p>descrição</p>
-            </div>
-        </div>
-    </div>
-    <div class="container mb-3">
-        <div class="row">
-            <div class="col">
-                <swiper [config]='swiperConfig'>
-                    <ng-template swiperSlide *ngFor='let party of parties'>
-                        <app-party-card [party]="party"></app-party-card>
-                    </ng-template>
-                </swiper>
+        <div class="container mb-3">
+            <div class="row">
+                <div class="col">
+                    <swiper [config]='swiperConfig'>
+                        <ng-template swiperSlide *ngFor='let party of parties'>
+                            <app-party-card [party]="party"></app-party-card>
+                        </ng-template>
+                    </swiper>
+                </div>
             </div>
         </div>
     </div>

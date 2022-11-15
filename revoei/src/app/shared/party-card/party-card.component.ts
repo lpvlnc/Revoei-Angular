@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Party } from '@core/interfaces/party';
+import { Party } from '@shared/interfaces/party';
 
 @Component({
   selector: 'app-party-card',

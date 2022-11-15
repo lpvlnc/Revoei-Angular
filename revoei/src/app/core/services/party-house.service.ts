@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PartyHouse } from '@core/interfaces/party-house';
+import { PartyHouse } from '@shared/interfaces/party-house';
 import { RequestService } from '@core/services/request.service';
 import { Observable } from 'rxjs';
 
