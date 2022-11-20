@@ -8,8 +8,11 @@
         </div>
         <div class="expanded">
             <div class="row pt-2 pb-1">
-                <div class="col">
+                <div class="col-6">
                     <a routerLink="/party-house/{{party.partyHouse.id}}">{{party.partyHouse.name}}</a>
+                </div>
+                <div class="col-6 stars">
+                    <mat-icon *ngFor="let number of [1, 2, 3, 4, 5]" [ngClass]="{'checked': number <= party.stars}">star</mat-icon>
                 </div>
             </div>
             <div class="row">

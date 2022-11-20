@@ -23,14 +23,14 @@ export class PartyService {
   }
 
   userPresenceConfirmed(userId: number, partyId: number): Observable<boolean> {
-    return this.request.Request('get', `UserParty/UserPresenceConfirmed/${userId}/${partyId}`);
+    return this.request.Request('get', `Party/UserPresenceConfirmed/${userId}/${partyId}`);
   }
 
   confirmPresence(userId: number, partyId: number): Observable<string> {
-    return this.request.Request('post', `UserParty/ConfirmPresence/${userId}/${partyId}`, null, { responseType: 'text' });
+    return this.request.Request('post', `Party/ConfirmPresence/${userId}/${partyId}`, null, { responseType: 'text' });
   }
 
   cancelPresence(userId: number, partyId: number): Observable<string> {
-    return this.request.Request('delete', `UserParty/CancelPresence/${userId}/${partyId}`, null, { responseType: 'text' });
+    return this.request.Request('delete', `Party/CancelPresence/${userId}/${partyId}`, null, { responseType: 'text' });
   }
 }

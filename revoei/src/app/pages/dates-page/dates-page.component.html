@@ -1,1 +1,22 @@
-<h1>Dates</h1>
+<app-title title="Dates"></app-title>
+<div class="container mt-3" *ngIf="dates">
+    <div class="row" *ngFor="let date of dates">
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <a routerLink="/party/{{date.id}}">{{date.name}}</a>
+                </div>
+            </div>
+            <div class="row mb-0">
+                <div class="col">
+                    <p>{{date.startAt | date: 'dd/MM/yyyy - HH:mm'}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

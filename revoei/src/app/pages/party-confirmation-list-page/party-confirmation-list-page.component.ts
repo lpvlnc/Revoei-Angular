@@ -5,7 +5,7 @@ import { NavbarService } from '@core/services/nav-bar.service';
 import { UserPartyConfirmationDTO } from '@shared/interfaces/user-party-confirmation';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Observable } from 'rxjs';
-import { PartyConfirmationListService } from './party-confirmation-list.service';
+import { PartyConfirmationListService } from './party-confirmation-list-page.service';
 
 @Component({
   selector: 'app-party-confirmation-list-page',

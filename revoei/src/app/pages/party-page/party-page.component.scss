@@ -27,3 +27,14 @@ img {
     margin: 0;
 	flex-flow: column nowrap;
 }
+
+.stars {
+    transform: scale(0.7);
+    right: -60%;
+    top: 31%;
+    text-align: end;
+}
+
+.checked {
+    color: orange;
+}

@@ -11,3 +11,9 @@ export interface Party {
     photo: string;
     partyHouse: PartyHouse;
 }
+
+export interface DateDTO {
+    id: number;
+    name: string;
+    startAt: Date;
+}
