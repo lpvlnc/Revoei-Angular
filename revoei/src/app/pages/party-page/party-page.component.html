@@ -1,73 +1,83 @@
-<div class="main">
+<div class="container main px-0 h-100">
     <app-title [title]="party.name"></app-title>
-    <div class="container main">
+    <div class="row">
+        <div class="col">
+            <img [src]="party.photo" alt="">
+        </div>
+    </div>
+    <div class="container expanded">
+        <div class="row pt-2 pb-1">
+            <div class="col">
+                <a routerLink="/party-house/{{party.partyHouse.id}}">{{party.partyHouse.name}}</a>
+            </div>
+        </div>
         <div class="row">
-            <div class="col p-0">
-                <img [src]="party.photo" alt="">
+            <div class="col px-2">
+                <mat-icon *ngFor="let number of [1, 2, 3, 4, 5]" [ngClass]="{'checked': number <= party.stars}">star</mat-icon>
             </div>
         </div>
-        <div class="expanded">
-            <div class="row pt-2 pb-1">
-                <div class="col-6">
-                    <a routerLink="/party-house/{{party.partyHouse.id}}">{{party.partyHouse.name}}</a>
-                </div>
-                <div class="col-6 stars">
-                    <mat-icon *ngFor="let number of [1, 2, 3, 4, 5]" [ngClass]="{'checked': number <= party.stars}">star</mat-icon>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <p>&nbsp;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Labore illum laboriosam magnam aliquam, quia dolore perspiciatis ipsa aspernatur odio incidunt. Quam non deleniti nesciunt at eaque temporibus doloribus nobis molestias.sssssssssssssssssssssssssssss</p>
-                </div>
-            </div>
-            <div class="row pt-2">
-                <div class="col-6">
-                    <h2>Horário</h2>
-                </div>
-                <div class="col-6">
-                    <h2>Entrada</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <p>18:00 - 04:00</p>
-                </div>
-                <div class="col-6">
-                    <p>Grátis</p>
-                </div>
-            </div>
-            <div class="row pt-2">
-                <div class="col-6">
-                    <h2>Estilo de música</h2>
-                </div>
-                <div class="col-6">
-                    <h2>Open?</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-6">
-                    <p>Eletrônica</p>
-                </div>
-                <div class="col-6">
-                    <p>Não</p>
-                </div>
+        <div class="row">
+            <div class="col">
+                <p>&nbsp;A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A AA</p>
             </div>
         </div>
-        <div class="container mb-3">
-            <div class="row">
-                <div class="col">
-                    <div *ngIf="presenceConfirmed; else elseBlock">
-                        <app-button label='Cancel presence' type="primary" icon="cancel" (click)="confirmOrCancelPresence()"></app-button>
-                    </div>
-                    <ng-template #elseBlock>
-                        <app-button label='Confirm presence' type="primary" icon="check_circle" (click)="confirmOrCancelPresence()"></app-button>
-                    </ng-template>
-                </div>
+        <div class="row pt-2">
+            <div class="col-6">
+                <h2>Data</h2>
             </div>
-            <div class="row mt-2">
-                <div class="col">
-                    <app-button label='Guest list' type="secondary" icon="people" (click)="goToPartyConfirmationListPage()"></app-button>
+            <div class="col-6">
+                <h2>Horário</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>{{party.startAt | date: 'dd/MM/yyyy'}}</p>
+            </div>
+            <div class="col-6">
+                <p>{{party.startAt | date: 'HH:mm'}} {{party.endAt | date: '- HH:mm'}}</p>
+            </div>
+        </div>
+        <div class="row pt-2">
+            <div class="col-6">
+                <h2>Entrada</h2>
+            </div>
+            <div class="col-6">
+                <h2>Open?</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>{{getPrice()}}</p>
+            </div>
+            <div class="col-6">
+                <p>{{getOpenBar()}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <h2>Estilo de música</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p>Eletrônica</p>
+            </div>
+        </div>
+    </div>
+    <div class="container mb-3">
+        <div class="row">
+            <div class="col">
+                <div *ngIf="presenceConfirmed; else elseBlock">
+                    <app-button label='Cancel presence' type="primary" icon="cancel" (click)="confirmOrCancelPresence()"></app-button>
                 </div>
+                <ng-template #elseBlock>
+                    <app-button label='Confirm presence' type="primary" icon="check_circle" (click)="confirmOrCancelPresence()"></app-button>
+                </ng-template>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col">
+                <app-button label='Guest list' type="secondary" icon="people" (click)="goToPartyConfirmationListPage()"></app-button>
             </div>
         </div>
     </div>

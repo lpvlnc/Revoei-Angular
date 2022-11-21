@@ -5,6 +5,10 @@ export interface Party {
     partyHouseId: number;
     name: string;
     description: string;
+    startAt: Date;
+    endAt?: Date;
+    price: number;
+    openBar: boolean;
     upVotes: number;
     downVotes: number;
     stars: number;

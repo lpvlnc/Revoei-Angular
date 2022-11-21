@@ -14,6 +14,7 @@ h2 {
 
 img {
     max-height: 250px;
+    overflow: hidden;
 }
 
 .expanded {
@@ -22,17 +23,15 @@ img {
 }
 
 .main {
-    height: 100%;
+    overflow: hidden;
     display: flex;
     margin: 0;
 	flex-flow: column nowrap;
 }
 
-.stars {
+mat-icon {
     transform: scale(0.7);
-    right: -60%;
-    top: 31%;
-    text-align: end;
+    margin: 0;
 }
 
 .checked {

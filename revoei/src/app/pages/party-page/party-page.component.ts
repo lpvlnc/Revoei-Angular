@@ -18,6 +18,10 @@ export class PartyPageComponent implements OnInit {
     partyHouseId: 0,
     name: '',
     description: '',
+    startAt: new Date(),
+    endAt: undefined,
+    price: 0,
+    openBar: false,
     upVotes: 0,
     downVotes: 0,
     stars: 0,
@@ -113,5 +117,13 @@ export class PartyPageComponent implements OnInit {
 
   goToPartyConfirmationListPage() {
     this.router.navigate([`party-confirmation-list/${this.party.id}`]);
+  }
+
+  getPrice() {
+    return this.party.price == 0 ? "Grátis" : this.party.price;
+  }
+
+  getOpenBar() {
+    return this.party.openBar == false ? "No" : "yes";
   }
 }
