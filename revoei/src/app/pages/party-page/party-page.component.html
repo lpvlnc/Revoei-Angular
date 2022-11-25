@@ -18,7 +18,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <p>&nbsp;A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A A AA</p>
+                <p>&nbsp;{{party.description}}</p>
             </div>
         </div>
         <div class="row pt-2">
@@ -68,16 +68,16 @@
         <div class="row">
             <div class="col">
                 <div *ngIf="presenceConfirmed; else elseBlock">
-                    <app-button label='Cancel presence' type="primary" icon="cancel" (click)="confirmOrCancelPresence()"></app-button>
+                    <app-button label='Cancelar presença' type="primary" icon="cancel" (click)="confirmOrCancelPresence()"></app-button>
                 </div>
                 <ng-template #elseBlock>
-                    <app-button label='Confirm presence' type="primary" icon="check_circle" (click)="confirmOrCancelPresence()"></app-button>
+                    <app-button label='Confirmar presença' type="primary" icon="check_circle" (click)="confirmOrCancelPresence()"></app-button>
                 </ng-template>
             </div>
         </div>
         <div class="row mt-2">
             <div class="col">
-                <app-button label='Guest list' type="secondary" icon="people" (click)="goToPartyConfirmationListPage()"></app-button>
+                <app-button label='Confirmados' type="secondary" icon="people" (click)="goToPartyConfirmationListPage()"></app-button>
             </div>
         </div>
     </div>

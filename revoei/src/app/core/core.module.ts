@@ -8,6 +8,8 @@ import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+import { ClipboardModule } from '@angular/cdk/clipboard';
 
 @NgModule({
   declarations: [],
@@ -31,7 +33,9 @@ import { MatIconModule } from '@angular/material/icon';
       resetTimeoutOnDuplicate: true
     }),
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    ClipboardModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +45,9 @@ import { MatIconModule } from '@angular/material/icon';
     NgbModule,
     HttpClientModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    ClipboardModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true }],
 })

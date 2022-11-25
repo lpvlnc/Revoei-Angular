@@ -124,6 +124,6 @@ export class PartyPageComponent implements OnInit {
   }
 
   getOpenBar() {
-    return this.party.openBar == false ? "No" : "yes";
+    return this.party.openBar == false ? "Não" : "Sim";
   }
 }

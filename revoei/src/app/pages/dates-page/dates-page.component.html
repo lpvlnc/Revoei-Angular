@@ -3,13 +3,20 @@
     <div class="row" *ngFor="let date of dates">
         <div class="col">
             <div class="row">
-                <div class="col">
-                    <a routerLink="/party/{{date.id}}">{{date.name}}</a>
+                <div class="col-10">
+                    <div class="row">
+                        <div class="col">
+                            <a routerLink="/party/{{date.id}}">{{date.name}}</a>
+                        </div>
+                    </div>
+                    <div class="row mb-0">
+                        <div class="col">
+                            <p>{{date.startAt | date: 'dd/MM/yyyy - HH:mm'}}</p>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="row mb-0">
-                <div class="col">
-                    <p>{{date.startAt | date: 'dd/MM/yyyy - HH:mm'}}</p>
+                <div class="col-2 d-flex align-items-center">
+                    <app-dates-details [id]="date.id"></app-dates-details>
                 </div>
             </div>
             <div class="row">

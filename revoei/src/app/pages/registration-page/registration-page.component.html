@@ -1,16 +1,16 @@
 <div class="container mt-5">
-    <h1>Registration</h1>
+    <h1>Cadastro</h1>
     <div class="row d-flex justify-content-center">
         <div class="col-12">
             <form [formGroup]="formGroup">
                 <div class="row">
                     <div class="col">
-                        <app-input id="firstName" label="First name" [control]="formGroup.controls.firstName" maxlength="40"></app-input>
+                        <app-input id="firstName" label="Nome" [control]="formGroup.controls.firstName" maxlength="40"></app-input>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <app-input id="lastName" label="Last name" [control]="formGroup.controls.lastName" maxlength="64"></app-input>
+                        <app-input id="lastName" label="Sobrenome" [control]="formGroup.controls.lastName" maxlength="64"></app-input>
                     </div>
                 </div>
                 <div class="row">
@@ -20,27 +20,27 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <app-input id="username" label="Username" [control]="formGroup.controls.username" maxlength="45"></app-input>
+                        <app-input id="username" label="Usuário" [control]="formGroup.controls.username" maxlength="45"></app-input>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <app-input id="password" label="Password" type="password" [control]="formGroup.controls.password" maxlength="64"></app-input>
+                        <app-input id="password" label="Senha" type="password" [control]="formGroup.controls.password" maxlength="64"></app-input>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <app-input id="passwordConfirmation" label="Password confirmation" type="password" [control]="formGroup.controls.passwordConfirmation" maxlength="64"></app-input>
+                        <app-input id="passwordConfirmation" label="Confirmação de senha" type="password" [control]="formGroup.controls.passwordConfirmation" maxlength="64"></app-input>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col">
-                        <app-button label='register' type="primary" (click)="registration()" [disabled]="!formGroup.valid"></app-button>
+                        <app-button label='Cadastrar' type="primary" (click)="registration()" [disabled]="!formGroup.valid"></app-button>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col">
-                        <p class="text-center">Already have an account? <a href="login">Sign in</a></p>
+                        <p class="text-center">Já possui uma conta? <a href="login">Logar</a></p>
                     </div>
                 </div>
             </form>

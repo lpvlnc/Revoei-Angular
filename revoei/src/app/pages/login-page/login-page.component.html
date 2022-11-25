@@ -5,17 +5,17 @@
             <form [formGroup]="formGroup" (ngSubmit)="login()">
                 <div class="row">
                     <div class="col">
-                        <app-input id="username" label="Username" [control]="formGroup.controls.username" maxlength="45"></app-input>
+                        <app-input id="username" label="usuário" [control]="formGroup.controls.username" maxlength="45"></app-input>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <app-input id="password" label="Password" type="password" [control]="formGroup.controls.password" maxlength="64"></app-input>
+                        <app-input id="password" label="Senha" type="password" [control]="formGroup.controls.password" maxlength="64"></app-input>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <a href="forgot-password" class="float-end mt-3">Forgot password?</a>
+                        <a href="forgot-password" class="float-end mt-3">Esqueceu a senha?</a>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="row mt-3">
                     <div class="col">
-                        <p class="text-center">Dont have an account yet? <a href="registration">Sign up</a></p>
+                        <p class="text-center">Ainda não possui uma conta? <a href="registration">Cadastrar-se</a></p>
                     </div>
                 </div>
             </form>
