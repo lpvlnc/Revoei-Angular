@@ -19,7 +19,7 @@ export class PartyService {
   }
 
   getByPartyHouseId(id: number): Observable<Party[]> {
-    return this.request.Request('get', `Party/GetByPartyHousseId/${id}`);
+    return this.request.Request('get', `Party/GetByPartyHouseId/${id}`);
   }
   
   getPartiesAttended(id: number): Observable<Party> {
