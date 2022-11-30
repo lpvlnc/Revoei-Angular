@@ -14,6 +14,36 @@ export class HomePageComponent implements OnInit {
   search: string = "";
   allParties: Party[] = [];
   filteredParties: Party[] = [];
+  partyAttended: Party = {
+    id: 0,
+    partyHouseId: 0,
+    name: '',
+    description: '',
+    startAt: new Date(),
+    endAt: undefined,
+    price: 0,
+    openBar: false,
+    genre: '',
+    upVotes: 0,
+    downVotes: 0,
+    stars: 0,
+    photo: '../../assets/images/parties/0.jpg',
+    partyHouse: {
+      id: 0,
+      cnpj: '',
+      name: '',
+      description: '',
+      neighborhood: '',
+      postalCode: '',
+      city: '',
+      fu: '',
+      address: '',
+      addressNumber: 0,
+      addressComplement: '',
+      phone: '',
+      photo: '../../assets/images/parties/0.jpg'
+    }
+  };
   
   constructor(private partyService: PartyService,
               private spinner: NgxSpinnerService,
@@ -22,6 +52,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.navBarService.show();
     this.getParties();
+    this.getPartyAttended();
   }
 
   getParties() {
@@ -34,6 +65,22 @@ export class HomePageComponent implements OnInit {
     }).add(() =>{
       this.spinner.hide();
     });
+  }
+
+  getPartyAttended() {
+    if (localStorage.getItem('feedbackEnviado') != 'Sim'){
+      this.spinner.show();
+      let id = localStorage.getItem("id");
+      if (id != null && id != "0") { 
+        this.partyService.getPartiesAttended(parseInt(id)).subscribe({
+          next: (data: Party) => {
+            this.partyAttended = data;
+          }
+        }).add(() =>{
+          this.spinner.hide();
+        });
+      }
+    }
   }
 
   filter() {

@@ -32,7 +32,7 @@ export class RequestService implements OnDestroy {
         request = this.http.post(url, body, options);
         break;
       case 'put':
-        request = this.http.put(url, body);
+        request = this.http.put(url, body, options);
         break;
       case 'delete':
         request = this.http.delete(url, options);

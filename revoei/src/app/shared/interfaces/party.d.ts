@@ -9,6 +9,7 @@ export interface Party {
     endAt?: Date;
     price: number;
     openBar: boolean;
+    genre: string;
     upVotes: number;
     downVotes: number;
     stars: number;

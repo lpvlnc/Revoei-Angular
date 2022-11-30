@@ -3,5 +3,5 @@ export interface UserPartyConfirmationDTO {
     username: string;
     firstName: string;
     lastName: string;
-    ProfilePicture: string;
+    profilePicture: string;
 }

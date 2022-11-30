@@ -17,6 +17,7 @@ export class PartyCardComponent implements OnInit {
     endAt: undefined,
     price: 0,
     openBar: false,
+    genre: '',
     upVotes: 0,
     downVotes: 0,
     stars: 0,

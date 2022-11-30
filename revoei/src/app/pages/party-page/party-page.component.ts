@@ -22,6 +22,7 @@ export class PartyPageComponent implements OnInit {
     endAt: undefined,
     price: 0,
     openBar: false,
+    genre: '',
     upVotes: 0,
     downVotes: 0,
     stars: 0,
@@ -120,7 +121,7 @@ export class PartyPageComponent implements OnInit {
   }
 
   getPrice() {
-    return this.party.price == 0 ? "Grátis" : this.party.price;
+    return this.party.price == 0 ? "Grátis" : `R$ ${this.party.price}`;
   }
 
   getOpenBar() {

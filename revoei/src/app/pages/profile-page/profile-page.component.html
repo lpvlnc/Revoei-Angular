@@ -1,1 +1,89 @@
-<h1>Profile</h1>
+<div class="container-fluid main p-0">
+    <div class="container-header">
+        <div class="row">
+            <div class="col-2">
+                <a (click)="back()" class="arrow mt-2 px-2 position-absolute start-0">
+                    <mat-icon class="">arrow_back</mat-icon>
+                </a>
+            </div>
+            <div class="col-8">
+                <h1 class="py-1">Perfil</h1>
+            </div>
+            <div class="col-2">
+                <button class="menu-button arrow mt-2 px-2 position-absolute end-0" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="editProfile()">
+                      <span *ngIf="!editing">Editar perfil</span>
+                      <span *ngIf="editing">Cancelar edição</span>
+                    </button>
+                    <button mat-menu-item (click)="logout()">
+                      <span>Logout</span>
+                    </button>
+                </mat-menu>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row mt-2">
+            <div class="col d-flex justify-content-center">
+                <img [src]="user.profilePicture" alt="">
+                <div class="points">
+                    <mat-icon class="starIcon">stars</mat-icon>
+                    <h2 class="thin starCounter">{{user.points}}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>{{user.username}}</h2>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+                <h2 class="thin">Membro desde:</h2>
+            </div>
+        </div>
+    
+        <div class="row">
+            <div class="col">
+                <p>{{user.createdAt | date: 'dd/MM/yyyy' }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <form [formGroup]="formGroup">
+                    <div class="row">
+                        <div class="col">
+                            <app-input id="username" label="usuário" [control]="formGroup.controls.username" maxlength="45" [disabled]="!editing"></app-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <app-input id="firstName" label="Nome" [control]="formGroup.controls.firstName" maxlength="40" [disabled]="!editing"></app-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <app-input id="lastName" label="Sobrenome" [control]="formGroup.controls.lastName" maxlength="64" [disabled]="!editing"></app-input>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <app-input id="email" label="E-mail" [control]="formGroup.controls.email" maxlength="62" [disabled]="!editing"></app-input>
+                        </div>
+                    </div>
+                    <div class="row mt-3" *ngIf="editing">
+                        <div class="col">
+                            <app-button label='Salvar' [disabled]="!formGroup.valid" type="primary" icon="save_alt" (click)="salvar()"></app-button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

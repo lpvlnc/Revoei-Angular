@@ -1,0 +1,52 @@
+<div class="container-fluid feedback" *ngIf="visible">
+    <div class="row">
+        <div class="col d-flex justify-content-start">
+            <mat-icon (click)="close()">close</mat-icon>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h1>Feedback</h1>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <p>Como foi sua experiência na festa {{party.name}}?</p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col">
+            <div class="row">
+                <div class="col-6">
+                    <mat-icon [ngClass]="{ 'up-pressed' : upVote  }" (click)="upVoteClick()">thumb_up</mat-icon>
+                </div>
+                <div class="col-6">
+                    <mat-icon [ngClass]="{ 'down-pressed' : downVote  }" (click)="downVoteClick()">thumb_down</mat-icon>
+                </div>
+            </div>
+    
+            <div class="row mt-5">
+                <div class="col">
+                    <p>Nos deixe sua opinião detalhada e ganhe:</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <mat-icon class="starIcon">stars</mat-icon>
+                    <h1>25</h1>
+                </div>
+            </div>
+    
+            <div class="row">
+                <div class="col">
+                    <textarea id="opinion" label="Opinião" [formControl]="formGroup.controls.opinion" maxlength="255"></textarea>
+                </div>
+            </div>
+
+            <div class="row mt-2">
+                <app-button label='Enviar' type="primary" (click)="enviarFeedback()"></app-button>
+            </div>
+        </div>
+    </div>
+</div>

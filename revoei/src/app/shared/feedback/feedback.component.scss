@@ -1,0 +1,44 @@
+.feedback {
+    background-color: var(--color-background);
+    position: absolute;
+    padding-top: 5%;
+    top: 0%;
+    left: 0%;
+    height: 100%;
+    z-index: 10001;
+    text-align: center;
+}
+
+mat-icon {
+    transform: scale(2);
+}
+
+.up-pressed {
+    color: green;
+}
+
+.up:hover {
+    color: green;
+}
+
+
+.down:hover {
+    color: red;
+}
+
+.down-pressed {
+    color: red;
+}
+
+textarea {
+    width: 100%;
+    height: 255px;
+    outline: 1px;
+    outline-style: solid;
+    outline-color: var(--color-text);
+    padding: 2px;
+}
+
+.starIcon {
+    color: var(--color-primary);
+}
